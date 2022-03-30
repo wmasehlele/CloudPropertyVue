@@ -1,17 +1,17 @@
 <template>
   <section class="login">
       <div class="container-fluid">        
-        <RestPasswordComponent />
+        <ForgetPasswordComponent />
     </div>
   </section>
 </template>
 <script>
 // @ is an alias to /src
-import RestPasswordComponent from '@/components/auth/ResetPasswordComponent.vue'
+import ForgetPasswordComponent from '@/components/auth/ForgotPasswordComponent.vue'
 export default {
-    name: 'RestPasswordView',
+    name: 'ForgotPasswordView',
     components: {
-        RestPasswordComponent
+        ForgetPasswordComponent
     }
 }
 </script>
