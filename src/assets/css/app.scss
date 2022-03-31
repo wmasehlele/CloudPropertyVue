@@ -4,26 +4,35 @@
 // Variables
 @import 'variables';
 
+$primary:       #dc3545 !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-:root {
-    --body-font: 'Nunito', sans-serif;
-    --white-color: #eee;
-    --black-color: #3f4450;
-    --red-color: #e91c1c;
-    --side-nav-width: 250px;
-}
+// scss-docs-start theme-color-variables
 
+$white-color:   #fff;
+$grey-color:    #ced4da;
+$black-color:   #3f4450;
+$side-nav-width:  250px;
+
+$body-font: 'Nunito', sans-serif;
 
 body, html, #app {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: $white-color;
     text-align: left;
-    font-family: var(--body-font);
+    font-family: $body-font;
 }
 
 a {
@@ -49,8 +58,8 @@ a {
     }    
 
     .create-account-wrapper {
-        border-top: 1px solid #ced4da !important;
-        border-bottom: 0px solid #ced4da !important;
+        border-top: 1px solid $grey-color !important;
+        border-bottom: 0px solid $grey-color !important;
     }
 
     .btn {
@@ -101,17 +110,17 @@ a {
 }
 
 nav.side-nav{
-    width: var(--side-nav-width);
+    width: $side-nav-width;
     height: 100%;
     padding: 0px 15px;
     position: fixed;
 
     .app-name {
-        border-bottom: 1px solid var(--white-color);
+        border-bottom: 1px solid $white-color;
         padding: 15px 0px 15px 0px;
         .navbar-brand {
-            width: calc(var(--side-nav-width) - 30px) !important;
-            color: var(--red-color);
+            width: calc($side-nav-width - 30px) !important;
+            color: $primary;
 
             .bi {
                 font-size: 22px;
@@ -121,7 +130,7 @@ nav.side-nav{
     }
     
     ul, li, a {
-        width: calc(var(--side-nav-width) - 30px) !important;
+        width: calc($side-nav-width - 30px) !important;
         padding: 0;      
     }
 
@@ -129,7 +138,7 @@ nav.side-nav{
         li {            
             a.nav-link {
                 padding: 10px !important;
-                color: var(--black-color);
+                color: $black-color;
                 font-weight: 600;
                 .bi {
                     margin-right: 15px;
@@ -137,7 +146,7 @@ nav.side-nav{
             }
             a.nav-link:hover,
             a.nav-link .bi:hover {
-                color: red !important;
+                color: $primary !important;
             }            
         }                       
     }
@@ -147,7 +156,7 @@ nav.side-nav{
 main.app-main {
     margin: 20px;
     width: 100%;
-    margin-left: calc(var(--side-nav-width) + 20px);
+    margin-left: calc($side-nav-width + 20px);
 
     p {
         margin: 0px;
@@ -164,16 +173,26 @@ main.app-main {
 
     .page-header {
         padding: 0px 0px 10px 0px;
+        border-bottom: 1px solid $grey-color;
+        margin-bottom: 15px;
+        .title {
+            margin-left: 10px;
+        }
         .bi {
-            font-size: 22px;
-            margin-right: 10px;
+            font-size: 22px;    
             margin-top: 10px;
             cursor: pointer;
-            color: #000;
+            color: $black-color;
         }
 
         span {
             margin-top: -5px;
+        }
+
+        .profile {
+            .bi { 
+                color: $white-color;
+            }
         }
     }
 
@@ -184,7 +203,7 @@ main.app-main {
     }
 
     .priority-maintenance {
-        border-left: 3px solid var(--red-color);
+        border-left: 3px solid $primary;
     }
 
     .maintenance-item-action {
@@ -192,7 +211,7 @@ main.app-main {
             .bi {
                 font-weight: 400;
                 font-size: 30px;
-                color: var(--red-color);
+                color: $primary;
             }
         }
     }

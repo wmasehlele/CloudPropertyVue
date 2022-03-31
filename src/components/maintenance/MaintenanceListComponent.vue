@@ -1,42 +1,44 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-md-5 d-flex justify-content-start">
-            <div class="btn-group align-self-start">
-                <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
-                    Status - {{ currentFilter.current_status }}
-                </button>
-                <button type="button" class="btn btn-md btn-danger shadow-none dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-chevron-down"></i>
-                </button>
-                <ul class="dropdown-menu p-0">
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1, 'New')">New</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(2, 'In Review')">In Review</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(3, 'In Progress')">In Progress</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(4, 'Completed')">Completed</a></li>
-                </ul>
-            </div> 
-            <div class="btn-group align-self-start px-2">
-                <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
-                    Priority - {{ currentFilter.current_priority }}
-                </button>
-                <button type="button" class="btn btn-md btn-danger shadow-none dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-chevron-down"></i>
-                </button>
-                <ul class="dropdown-menu p-0">
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Low</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Medium</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">High</a></li>
-                    <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Critical</a></li>
-                </ul>
-            </div>             
-            <div class="">
-                <input id="search" type="search" name="search" class="form-control shadow-none" placeholder="Search" v-model="currentFilter.search_phrase" required>
-            </div>            
+        <div class="col-sm-12 col-md-10 d-flex justify-content-start">
+            <div class="row">
+                <div class="btn-group align-self-start col-sm-12 col-md-4 py-2">
+                    <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
+                        Status - {{ currentFilter.current_status }}
+                    </button>
+                    <button type="button" class="btn btn-md btn-danger shadow-none dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu p-0">
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1, 'New')">New</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(2, 'In Review')">In Review</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(3, 'In Progress')">In Progress</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(4, 'Completed')">Completed</a></li>
+                    </ul>
+                </div> 
+                <div class="btn-group align-self-start px-2 col-sm-12 col-md-4 py-2">
+                    <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
+                        Priority - {{ currentFilter.current_priority }}
+                    </button>
+                    <button type="button" class="btn btn-md btn-danger shadow-none dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu p-0">
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Low</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Medium</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">High</a></li>
+                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Critical</a></li>
+                    </ul>
+                </div>             
+                <div class="col-sm-12 col-md-4 py-2">
+                    <input id="search" type="search" name="search" class="form-control shadow-none" placeholder="Search" v-model="currentFilter.search_phrase" required>
+                </div> 
+            </div>           
         </div>
 
-        <div class="col-md-7 d-flex flex-row-reverse">
+        <div class="col-sm-12 col-md-2 d-flex flex-row-reverse py-2">
             <router-link class="btn btn-md btn-danger px-3" :to="{ name: 'maintenance-add' }"> 
                 <i class="bi bi-plus-lg"></i>
                 Add New 

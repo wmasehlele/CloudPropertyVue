@@ -8,7 +8,7 @@
                 <div class="mb-3">
                     <div class="form-floating col-sm-12 col-md-12">
                         <div class="form-floating">
-                            <input id="email" type="email" name="email" v-model="user.email" class="form-control shadow-none" required>
+                            <input id="email" type="email" name="email" v-model="login_form.email" class="form-control shadow-none" required>
                             <label for="email"> Email Address </label>
                         </div>
                     </div>  
@@ -16,7 +16,7 @@
                 <div class="mb-3">
                     <div class="form-floating col-sm-12 col-md-12">
                         <div class="form-floating">
-                            <input id="password" type="password" name="password" v-model="user.password" class="form-control shadow-none" required>
+                            <input id="password" type="password" name="password" v-model="login_form.password" class="form-control shadow-none" required>
                             <label for="password"> Password </label>
                         </div>
                     </div>  
@@ -40,19 +40,35 @@
 </template>
 
 <script>
+
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     name: 'LoginComponent',
     props: {
         
     },
+    computed: {
+        ...mapGetters({
+            authenticated: 'auth/authenticated',
+            user: 'auth/user'
+        })
+    },
     data() {
         return {
-            user: { email: '', password: '' }
+            login_form: { email: '', password: '' }
         }
     },    
     methods: {
-        login() {
-            this.$router.push({ name: 'dashboard' })
+        ...mapActions ({
+            signIn: 'auth/signIn'
+        }),
+        login () {
+            this.signIn (this.login_form).then(() => {
+                this.$router.push({ name: 'dashboard' })
+            }).catch(() => {
+                this.$router.push({ name: '/' })
+            })
         }
     }
 }

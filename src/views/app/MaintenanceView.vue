@@ -2,10 +2,7 @@
   <div class="d-flex flex-row app">      
     <NavigationComponent /> 
     <main class="height-100 app-main">                    
-        <div class="page-header"> 
-            <i class="bi bi-list"></i>
-            <span class="h5"> Maintenance </span>
-        </div>
+        <ModuleHeaderComponent title="Maintenance"></ModuleHeaderComponent>
         <div class="container-fluid app-content px-0">                                    
             <router-view></router-view>
         </div>
@@ -16,11 +13,13 @@
 <script>
 
 import NavigationComponent from '@/components/app/NavigationComponent.vue'
+import ModuleHeaderComponent from '@/components/app/ModuleHeaderComponent.vue'
 
 export default {
   name: 'MaintenanceView',
   components: {
     NavigationComponent,
+    ModuleHeaderComponent
   }
 }
 </script>

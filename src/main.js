@@ -13,9 +13,12 @@ import "./assets/css/app.scss"
 import "bootstrap"
 import "./assets/js/app"
 
-const app = createApp(App)
-app.config.productionTip = false
-app.use(store)
-app.use(router)
-app.mount('#app') 
- 
+require('@/store/subscriber')
+
+store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
+    const app = createApp(App)
+    app.config.productionTip = false
+    app.use(store)
+    app.use(router)
+    app.mount('#app') 
+})

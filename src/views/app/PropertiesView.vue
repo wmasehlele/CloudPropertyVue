@@ -2,12 +2,8 @@
   <div class="d-flex flex-row">      
     <NavigationComponent /> 
     <main class="height-100 app-main">                    
-        <div class="page-header"> 
-            <i class="bi bi-list"></i>
-            <span class="h5"> Properties </span>
-        </div>
+        <ModuleHeaderComponent title="Properties"></ModuleHeaderComponent>
         <div class="container-fluid app-content px-0">    
-            PropertiesView                                    
             <router-view></router-view>
         </div>
     </main>  
@@ -17,11 +13,13 @@
 <script>
 
 import NavigationComponent from '@/components/app/NavigationComponent.vue'
+import ModuleHeaderComponent from '@/components/app/ModuleHeaderComponent.vue'
 
 export default {
   name: 'PropertiesView',
   components: {
     NavigationComponent,
+    ModuleHeaderComponent
   }
 }
 </script>

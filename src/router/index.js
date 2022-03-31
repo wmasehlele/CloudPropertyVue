@@ -4,6 +4,9 @@ import ForgotPasswordView from '../views/auth/ForgotPasswordView.vue'
 import RegisterView from '../views/auth/RegisterView.vue'
 import VerifyEmailView from '../views/auth/VerifyEmailView.vue'
 
+import store from '@/store'
+import { mapGetters } from 'vuex'
+
 const routes = [
   {
     path: '/',
@@ -59,12 +62,8 @@ const routes = [
           name: 'maintenance-view',
           component: () => import('../components/maintenance/MaintenanceViewComponent.vue'),
       }            
-  ]     
+    ]     
   }
-
-
-
-
   // {
   //   path: '/about',
   //   name: 'about',
@@ -78,6 +77,24 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+
+  mapGetters({
+      authenticated: 'auth/authenticated',
+      user: 'auth/user'
+  })
+
+  if (store.getters['auth/authenticated'] && (to.name == 'login' || to.name == 'register' || to.name == 'reset-password' || to.name == 'forgot-password')){
+    next({ name: 'dashboard' })
+  }
+
+  if ( !store.getters['auth/authenticated'] && (to.name !== 'login' && to.name !== 'register' && to.name !== 'reset-password' && to.name !== 'forgot-password')){
+    next({ name: 'login' })
+  } else {
+    next()
+  }
 })
 
 export default router 
