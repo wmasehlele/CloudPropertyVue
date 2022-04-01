@@ -20,6 +20,12 @@ export default {
             state.token = token
         },
         SET_USER (state, user){
+            if (user == null){
+                user = {
+                    name: null,
+                    email: null
+                }
+            }
             state.user = user
         }
 

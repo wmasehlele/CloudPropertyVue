@@ -90,7 +90,7 @@ router.beforeEach((to, from, next) => {
     next({ name: 'dashboard' })
   }
 
-  if ( !store.getters['auth/authenticated'] && (to.name !== 'login' && to.name !== 'register' && to.name !== 'reset-password' && to.name !== 'forgot-password')){
+  if ( !store.getters['auth/authenticated'] && (to.name !== 'login' && to.name !== 'register' && to.name !== 'verify-email' && to.name !== 'reset-password' && to.name !== 'forgot-password')){
     next({ name: 'login' })
   } else {
     next()
