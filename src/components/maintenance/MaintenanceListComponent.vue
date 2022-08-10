@@ -104,7 +104,7 @@
 <script>
     export default {
         mounted() {
-            //this.getMaintenanceRequests();    
+            this.getMaintenanceRequests();    
         },
         data() {
             return {

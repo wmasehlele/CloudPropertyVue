@@ -47,6 +47,9 @@ export default {
         logout () {
             this.signOut().then(() => {
                 this.$router.replace({ name: 'login' });
+            }).catch(() => {
+                console.log('error occured')
+                location.reload();
             })
         }
     }

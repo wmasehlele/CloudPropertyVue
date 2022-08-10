@@ -32,7 +32,7 @@ export default {
     },
     actions: {
         async signIn({ dispatch }, credentials) {
-            let response = await axios.post('http://127.0.0.1:8001/api/login', credentials)
+            let response = await axios.post('login', credentials)
             return dispatch('attempt', response.data.access_token)
         },
         async attempt({ commit, state }, token ){
@@ -45,7 +45,7 @@ export default {
             }
 
             try{
-                let response = await axios.get('http://127.0.0.1:8001/api/profile')
+                let response = await axios.get('profile')
                 commit('SET_USER', response.data)
             }catch (e){
                 commit('SET_TOKEN', null)
@@ -53,7 +53,7 @@ export default {
             }
         },
         signOut ( { commit }) {
-            return axios.post('http://127.0.0.1:8001/api/logout').then(() => {
+            return axios.post('logout').then(() => {
                 commit('SET_TOKEN', null)
                 commit('SET_USER', null)
             })
