@@ -6,7 +6,7 @@
         </div>
         <div> 
             <div class="btn-group align-self-start">
-                <button class="btn btn-md bg-none text-dark shadow-none px-3" type="button">
+                <button class="btn btn-md bg-none text-dark shadow-none px-3 d-none d-sm-block" type="button">
                     {{ user.name }}
                 </button>
                 <button type="button" class="btn btn-md btn-danger shadow-none profile dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">

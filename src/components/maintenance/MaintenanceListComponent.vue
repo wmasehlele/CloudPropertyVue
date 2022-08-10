@@ -1,8 +1,8 @@
 <template>
-    <div class="row justify-content-center">
-        <div class="col-12 d-flex justify-content-end">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
             <div class="row">
-                <div class="btn-group align-self-start col-sm-12 col-md-6 col-lg-3 py-2">
+                <div class="btn-group col-sm-12 col-md-3 py-2">
                     <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
                         Status - {{ currentFilter.current_status }}
                     </button>
@@ -17,7 +17,7 @@
                         <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(4, 'Completed')">Completed</a></li>
                     </ul>
                 </div> 
-                <div class="btn-group align-self-start px-2 col-sm-12 col-md-6 col-lg-3 py-2">
+                <div class="btn-group col-sm-12 col-md-3 py-2">
                     <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
                         Priority - {{ currentFilter.current_priority }}
                     </button>
@@ -31,25 +31,26 @@
                         <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">High</a></li>
                         <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">Critical</a></li>
                     </ul>
-                </div>  
-                
-                
-                <div class="col-sm-12 col-md-6 col-lg-3 py-2">
+                </div> 
+            </div>        
+        </div>                                             
+        <div class="col-sm-6 col-md-6">                    
+            <div class="row d-flex justify-content-end">
+                <div class="col-sm-12 col-md-6 col-lg-9 py-2">
                     <input id="search" type="search" name="search" class="form-control shadow-none" placeholder="Search" v-model="currentFilter.search_phrase" required>
                 </div> 
-                <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-row-reverse">
+                <div class="col-sm-12 col-md-6 col-lg-3 py-2 d-grid gap-2">
                     <router-link class="btn btn-danger" :to="{ name: 'maintenance-add' }"> 
                         <i class="bi bi-plus-lg"></i>
                         Add New 
                     </router-link>
-                </div>     
-                
-                
-            </div>           
+                </div>                  
+            </div>
         </div>
+    </div>
 
-        <div class="col-md-12 py-0">
-            
+    <div class="row">
+        <div class="col-md-12 py-0">            
             <div class="card maintenance-card my-3 py-0 priority-maintenance" v-for="maintenance in resultQuery" :key="maintenance.id">
                 <div class="card-body py-2">
                     <div class="row">
@@ -69,11 +70,11 @@
                             <p><small class="m-0 text-start text-muted"> Date Logged: </small></p>
                             <p id="created"> {{ maintenance.created_at }} </p>
                         </div>  
-                        <div class="col-sm-12 col-md-1">
+                        <div class="col-sm-6 col-md-1">
                             <p><small class="m-0 text-start text-muted"> Priority: </small></p>
                             <p id="created"> {{ maintenance.priority }} </p>
                         </div>  
-                        <div class="col-sm-12 col-md-2 maintenance-item-action d-flex">
+                        <div class="col-sm-6 col-md-2 maintenance-item-action d-flex">
                             <div class="matenance-item-status me-auto">
                                 <p><small class="m-0 text-start text-muted"> Status: </small></p>
                                 <p class="font-weight-bold"> {{ maintenance.status }} </p>
@@ -122,9 +123,9 @@
                         "title": "Plumbing / Toilet / Leaking / When Booting",
                         "description": "Pipes are overlowing",
                         "status_id": 1,
-                        "status": "New",
+                        "status": "Completed",
                         "priority_id": 1,
-                        "priority": "Low",
+                        "priority": "High",
                         "category_id": 1,
                         "category": "Appliances",
                         "sub_category_id": 1,
@@ -150,7 +151,7 @@
                         "status_id": 2,
                         "status": "In Review",
                         "priority_id": 1,
-                        "priority": "Low",
+                        "priority": "Midium",
                         "category_id": 1,
                         "category": "Appliances",
                         "sub_category_id": 1,

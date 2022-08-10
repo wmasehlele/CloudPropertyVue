@@ -52,31 +52,15 @@ a {
 }    
 
 .login-component {
-
-    .login-form {
-        padding-top: 15%;
-    }    
-
-    .create-account-wrapper {
-        border-top: 1px solid $grey-color !important;
-        border-bottom: 0px solid $grey-color !important;
+    .bi.bi-cloud-arrow-down-fill {
+        font-size: 95px;
+        color: red;
     }
-
-    .btn {
-        border: none;
-        min-width: 150px;
-        font-size: 16px;
-    }    
 }
 
 .forgot-password-component {
 
-    .forgot-password-form {
-        padding-top: 15%;
-    }   
-    
     .btn {
-        border: none;
         min-width: 150px;
         font-size: 16px;
     }    
@@ -84,26 +68,14 @@ a {
 }
 
 .register-component {
-
-    .register-form {
-        padding-top: 15%;
-    }
-
     .btn {
-        border: none;
         min-width: 150px;
         font-size: 16px;
     }    
 }
 
 .verify-email-component {
-
-    .verify-email-form {
-        padding-top: 15%;
-    }
-
     .btn {
-        border: none;
         min-width: 150px;
         font-size: 16px;
     }    

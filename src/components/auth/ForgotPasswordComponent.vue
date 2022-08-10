@@ -1,7 +1,7 @@
 <template>
-    <div class="row forgot-password-component">
-        <div class="col-sm-12 col-md-3 offset-md-4">
-            <div class="pt-5">
+    <div class="row forgot-password-component d-flex justify-content-center">
+        <div class="col-sm-12 col-md-3">
+            <div class="py-3">
                 <router-link :to="{ name: 'login' }" > <i class="bi bi-arrow-left-circle fs-2"></i> </router-link>                
             </div>            
             <form class="forgot-password-form needs-validation" novalidate>

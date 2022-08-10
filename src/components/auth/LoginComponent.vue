@@ -1,10 +1,11 @@
 <template>
-    <div class="row login-component">
-        <div class="col-sm-12 col-md-3 offset-md-4">
+    <div class="row login-component d-flex justify-content-center">
+        <div class="col-sm-12 col-md-3 col-lg-3">
             <form class="login-form needs-validation" novalidate>
-                <div class="mb-3 d-flex justify-content-center">
-                    <img alt="Vue logo" width="100" src="../../assets/logo.png">
-                </div>                   
+                <div class="pt-5 d-flex justify-content-center">
+                    <i class="bi bi-cloud-arrow-down-fill text-danger"></i>
+                </div>  
+                <p class="h3 pb-4 text-center"> Welcome back to Cloud Property </p>                 
                 <div class="mb-3">
                     <div class="form-floating col-sm-12 col-md-12">
                         <div class="form-floating">
@@ -23,17 +24,17 @@
                 </div>
                 <div class="mb-3">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 py-2">
-                            <a class="btn btn-md btn-primary shadow-none" v-on:click="login()"> Login </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 d-flex justify-content-md-end py-3">
+                        <div class="col-sm-12 col-md-12 text-center">
                             <router-link :to="{ name: 'reset-password' }" > Forgot password? </router-link>
+                        </div>                        
+                        <div class="col-sm-12 col-md-12 text-center py-4 d-grid gap-2">
+                            <a class="btn btn-lg btn-primary shadow-none" v-on:click="login()"> Login </a>
                         </div>
+                        <div class="col-sm-12 col-md-12 text-center">
+                            Don’t have an account yet? <router-link class="pt-2" :to="{ name: 'register' }" > Sign up </router-link>
+                        </div>                                
                     </div>
-                </div>
-                <div class="mb-3 py-2 d-flex justify-content-md-center create-account-wrapper">
-                    <router-link class="pt-2" :to="{ name: 'register' }" > Create account </router-link>
-                </div>                
+                </div>        
             </form>        
         </div>
     </div>

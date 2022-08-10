@@ -1,11 +1,11 @@
 <template>
-    <div class="row verify-email-component">
-        <div class="col-sm-12 col-md-3 offset-md-4">
-            <div class="pt-5">
+    <div class="row verify-email-component d-flex justify-content-center">
+        <div class="col-sm-12 col-md-3">
+            <div class="py-3">
                 <router-link :to="{ name: 'register' }" > <i class="bi bi-arrow-left-circle fs-2"></i> </router-link>                
             </div>            
             <form class="verify-email-form needs-validation" novalidate>
-                <div class="mb-3">
+                <div class="pb-4">
                     <label> A verification code has been sent to your email. </label>
                 </div>
                 <div class="mb-3">
@@ -47,10 +47,10 @@ export default {
     },
     methods: {
         submitEmailVerificationCode () {
-            this.$router.push({ name: "dashboard" })
+            this.$router.push({ name: "login" })
         },
         resendVerificationCode() {
-            this.$router.push({ name: "dashboard" })
+            this.$router.push({ name: "login" })
         }        
     }
 }

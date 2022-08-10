@@ -1,13 +1,11 @@
 <template>
-    <div class="row register-component">        
-        <div class="col-sm-12 col-md-3 offset-md-4">
-            <div class="pt-5">
+    <div class="row register-component d-flex justify-content-center">        
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="py-3">
                 <router-link :to="{ name: 'login' }" > <i class="bi bi-arrow-left-circle fs-2"></i> </router-link>                
             </div>
             <form class="register-form needs-validation" novalidate>                
-                <div class="mb-3 d-flex justify-content-start">
-                    <!-- <h4> Create your cloud property account </h4> -->
-                </div>  
+                <p class="h3 pb-4 text-left"> Create Cloud Property account </p>     
                 <div class="mb-3">
                     <div class="form-floating col-sm-12 col-md-12">
                         <div class="form-floating">
