@@ -1,4 +1,4 @@
-import axios from 'axios'
+//import axios from 'axios'
 
 export default {
     namespaced: true,
@@ -22,8 +22,8 @@ export default {
         SET_USER (state, user){
             if (user == null){
                 user = {
-                    name: null,
-                    email: null
+                    name: 'william',
+                    email: 'Moela'
                 }
             }
             state.user = user
@@ -32,20 +32,30 @@ export default {
     },
     actions: {
         async signIn({ dispatch }, credentials) {
-            let response = await axios.post('login', credentials)
-            return dispatch('attempt', response.data.access_token)
+            //let response = await axios.post('login', credentials)
+            //return dispatch('attempt', response.data.access_token)
+            credentials = "sometoken"
+            return dispatch('attempt', credentials)
         },
         async attempt({ commit, state }, token ){
             if (token){
+                console.log("setting token "+ token)
                 commit('SET_TOKEN', token)
             }
-
+            console.log("checking state")
             if (state.token == null) {
+                console.log("logging in failed")
                 return false;
             }
 
             try{
-                let response = await axios.get('profile')
+                //let response = await axios.get('profile')
+                let response = {
+                    data : {
+                        name: 'william',
+                        email: 'Moela'
+                    }
+                }
                 commit('SET_USER', response.data)
             }catch (e){
                 commit('SET_TOKEN', null)
@@ -53,10 +63,12 @@ export default {
             }
         },
         signOut ( { commit }) {
-            return axios.post('logout').then(() => {
-                commit('SET_TOKEN', null)
-                commit('SET_USER', null)
-            })
+            commit('SET_TOKEN', null)
+            commit('SET_USER', null)            
+            // return axios.post('logout').then(() => {
+            //     commit('SET_TOKEN', null)
+            //     commit('SET_USER', null)
+            // })
         }
     }
 }

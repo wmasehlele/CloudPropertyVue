@@ -16,7 +16,8 @@ import "./assets/js/app"
 
 require('@/store/subscriber')
 
-axios.defaults.baseURL = 'http://127.0.0.1:8001/api/'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
     const app = createApp(App)

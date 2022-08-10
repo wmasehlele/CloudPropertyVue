@@ -59,11 +59,12 @@ export default {
             login_form: { email: '', password: '' }
         }
     },    
-    methods: {
+    methods: {        
         ...mapActions ({
             signIn: 'auth/signIn'
         }),
         login () {
+            this.$router.push({ name: 'dashboard' })
             this.signIn (this.login_form).then(() => {
                 this.$router.push({ name: 'dashboard' })
             }).catch(() => {

@@ -1,8 +1,8 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-10 d-flex justify-content-start">
+        <div class="col-12 d-flex justify-content-end">
             <div class="row">
-                <div class="btn-group align-self-start col-sm-12 col-md-4 py-2">
+                <div class="btn-group align-self-start col-sm-12 col-md-6 col-lg-3 py-2">
                     <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
                         Status - {{ currentFilter.current_status }}
                     </button>
@@ -10,14 +10,14 @@
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu p-0">
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1, 'New')">New</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(2, 'In Review')">In Review</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(3, 'In Progress')">In Progress</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(4, 'Completed')">Completed</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequests()">All</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1, 'New')">New</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(2, 'In Review')">In Review</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(3, 'In Progress')">In Progress</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(4, 'Completed')">Completed</a></li>
                     </ul>
                 </div> 
-                <div class="btn-group align-self-start px-2 col-sm-12 col-md-4 py-2">
+                <div class="btn-group align-self-start px-2 col-sm-12 col-md-6 col-lg-3 py-2">
                     <button class="btn btn-md bg-light text-dark shadow-none px-3" type="button">
                         Priority - {{ currentFilter.current_priority }}
                     </button>
@@ -25,26 +25,29 @@
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu p-0">
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequests()">All</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Low</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Medium</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">High</a></li>
-                        <li><a class="dropdown-item" href="#" v-on:click="getMaintenanceRequestsByStatusId(1)">Critical</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequests()">All</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">Low</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">Medium</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">High</a></li>
+                        <li><a class="dropdown-item" v-on:click="getMaintenanceRequestsByStatusId(1)">Critical</a></li>
                     </ul>
-                </div>             
-                <div class="col-sm-12 col-md-4 py-2">
+                </div>  
+                
+                
+                <div class="col-sm-12 col-md-6 col-lg-3 py-2">
                     <input id="search" type="search" name="search" class="form-control shadow-none" placeholder="Search" v-model="currentFilter.search_phrase" required>
                 </div> 
+                <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-row-reverse">
+                    <router-link class="btn btn-danger" :to="{ name: 'maintenance-add' }"> 
+                        <i class="bi bi-plus-lg"></i>
+                        Add New 
+                    </router-link>
+                </div>     
+                
+                
             </div>           
         </div>
 
-        <div class="col-sm-12 col-md-2 d-flex flex-row-reverse py-2">
-            <router-link class="btn btn-md btn-danger px-3" :to="{ name: 'maintenance-add' }"> 
-                <i class="bi bi-plus-lg"></i>
-                Add New 
-            </router-link>
-        </div>    
-  
         <div class="col-md-12 py-0">
             
             <div class="card maintenance-card my-3 py-0 priority-maintenance" v-for="maintenance in resultQuery" :key="maintenance.id">
@@ -221,25 +224,23 @@
             },
 
             getMaintenanceRequests() {
-                var _this = this;
-                const axios = require('axios')
-                axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-                axios.get('http://127.0.0.1:8000/api/maintenance', {"Access-Control-Allow-Origin": "*"})
-                .then(response => {
-                    _this.maintenanceList = response.data                    
-                })
-                this.currentFilterRest()
+                // var _this = this;
+                // const axios = require('axios')
+                // axios.get('http://127.0.0.1:8000/api/maintenance')
+                // .then(response => {
+                //     _this.maintenanceList = response.data                    
+                // })
+                // this.currentFilterRest()
             },
 
-            getMaintenanceRequestsByStatusId(status_id, description) {
-                var _this = this;     
-                const axios = require('axios')   
-                axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';        
-                axios.get('http://127.0.0.1:8000/api/maintenance/'+status_id, {"Access-Control-Allow-Origin": "*"})
-                .then(response => {
-                    _this.maintenanceList = response.data                    
-                    _this.currentFilter.current_status = description
-                })
+            getMaintenanceRequestsByStatusId(/*status_id, description*/) {
+                // var _this = this;     
+                // const axios = require('axios')                           
+                // axios.get('http://127.0.0.1:8000/api/maintenance/'+status_id)
+                // .then(response => {
+                //     _this.maintenanceList = response.data                    
+                //     _this.currentFilter.current_status = description
+                // })
             }            
         }
     }
