@@ -124,7 +124,6 @@ nav.side-nav{
     }
 }
 
-
 main.app-main {
     margin: 20px;
     width: 100%;
@@ -150,6 +149,15 @@ main.app-main {
         .title {
             margin-left: 10px;
         }
+
+        .dropdown-menu {
+            min-width: 17rem;
+        }
+
+        hr {
+            margin: 0px;
+        }
+
         .bi {
             font-size: 22px;    
             margin-top: 10px;
@@ -161,10 +169,27 @@ main.app-main {
             margin-top: -5px;
         }
 
-        .profile {
+        .profile-menu {
+            
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0px 0px 0px 15px;
+            padding: 0px;
+
             .bi { 
                 color: $white-color;
+                vertical-align: middle;
             }
+        }
+
+        .profile-image {
+            background-color: #dc3545;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 6px 15px 0px 0px;    
+            vertical-align: middle;        
         }
     }
 

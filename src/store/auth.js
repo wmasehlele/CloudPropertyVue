@@ -52,8 +52,8 @@ export default {
                 //let response = await axios.get('profile')
                 let response = {
                     data : {
-                        name: 'william',
-                        email: 'Moela'
+                        name: 'Masehlele Moela',
+                        email: 'masehlele@gmail.com'
                     }
                 }
                 commit('SET_USER', response.data)
