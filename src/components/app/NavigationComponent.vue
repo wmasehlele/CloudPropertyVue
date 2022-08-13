@@ -1,6 +1,6 @@
 <template>
-    <nav class="bg-light side-nav">        
-        <div class="app-name">
+    <nav class="bg-danger side-nav" id="side-nav">        
+        <div class="app-name d-flex flex-row align-items-start">
             <router-link class="navbar-brand" :to="{ name: 'dashboard' }"> 
                 <i class="bi bi-cloud-arrow-down-fill"></i>
                 Cloud Property
@@ -40,7 +40,7 @@ export default {
     name: 'NavigationComponent',
     props: {
         
-    }
+    }    
 }
 </script>
 

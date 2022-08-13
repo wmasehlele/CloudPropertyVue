@@ -13,15 +13,19 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
 
+// client theme-color-variables
+$dark-color: $primary;
+$accent-color: $light;
+$text-color: $dark;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// scss-docs-start theme-color-variables
 
 $white-color:   #fff;
 $grey-color:    #ced4da;
 $black-color:   #3f4450;
 $side-nav-width:  250px;
+$page-header-height: 73px;
 
 $body-font: 'Nunito', sans-serif;
 
@@ -45,6 +49,10 @@ a {
     content: none;
 }
 
+.row {
+    margin: 0;
+}
+
 .btn {
     border: none;
     font-size: 16px !important;
@@ -54,7 +62,7 @@ a {
 .login-component {
     .bi.bi-cloud-arrow-down-fill {
         font-size: 95px;
-        color: red;
+        color: $dark-color;
     }
 }
 
@@ -88,11 +96,12 @@ nav.side-nav{
     position: fixed;
 
     .app-name {
-        border-bottom: 1px solid $white-color;
-        padding: 15px 0px 15px 0px;
+        //border-bottom: 1px solid $white-color;
+        padding: 16px 0px 15px 0px;
+        height: $page-header-height;
         .navbar-brand {
             width: calc($side-nav-width - 30px) !important;
-            color: $primary;
+            color: $accent-color;
 
             .bi {
                 font-size: 22px;
@@ -110,24 +119,26 @@ nav.side-nav{
         li {            
             a.nav-link {
                 padding: 10px !important;
-                color: $black-color;
+                color: $accent-color;
                 font-weight: 600;
                 .bi {
-                    margin-right: 15px;
+                    margin-right: 20px;
                 }                
             }
             a.nav-link:hover,
             a.nav-link .bi:hover {
-                color: $primary !important;
+                color: $text-color !important;
             }            
         }                       
     }
 }
 
 main.app-main {
-    margin: 20px;
-    width: 100%;
-    margin-left: calc($side-nav-width + 20px);
+    background-color: $white;
+    padding: calc($page-header-height + 10px) 0 0 0;
+    margin-left: calc($side-nav-width);
+    height: 100%;
+    z-index: -1;
 
     p {
         margin: 0px;
@@ -143,16 +154,9 @@ main.app-main {
     }
 
     .page-header {
-        padding: 0px 0px 10px 0px;
+        height: $page-header-height;
         border-bottom: 1px solid $grey-color;
-        margin-bottom: 15px;
-        .title {
-            margin-left: 10px;
-        }
-
-        .dropdown-menu {
-            min-width: 17rem;
-        }
+        margin-left: calc($side-nav-width);
 
         hr {
             margin: 0px;
@@ -167,6 +171,15 @@ main.app-main {
 
         span {
             margin-top: -5px;
+        }
+
+        .dropdown-menu {
+            min-width: 17rem;
+            //border-top: none;
+        }        
+
+        .humburger-menu-icon {
+            margin-right: 15px;
         }
 
         .profile-menu {
@@ -194,13 +207,12 @@ main.app-main {
     }
 
     .app-content {
-        width: 100%;
         height: 100%;
-        padding: 10px;
+        z-index: -1;
     }
 
     .priority-maintenance {
-        border-left: 3px solid $primary;
+        border-left: 3px solid $dark-color;
     }
 
     .maintenance-item-action {
@@ -208,7 +220,7 @@ main.app-main {
             .bi {
                 font-weight: 400;
                 font-size: 30px;
-                color: $primary;
+                color: $dark-color;
             }
         }
     }

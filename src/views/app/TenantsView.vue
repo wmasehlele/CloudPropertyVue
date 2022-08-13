@@ -1,13 +1,11 @@
-<template>
-  <div class="d-flex flex-row">      
-    <NavigationComponent /> 
-    <main class="height-100 app-main">                    
-        <ModuleHeaderComponent title="Tenants"></ModuleHeaderComponent>
-        <div class="container-fluid app-content px-0">                                                    
-            <router-view></router-view>
-        </div>
-    </main>  
-  </div>
+<template>    
+  <NavigationComponent /> 
+  <main class="app-main" id="app-main">                
+      <ModuleHeaderComponent title="Tenants"></ModuleHeaderComponent>
+      <div class="app-content px-0">                                             
+          <router-view></router-view>
+      </div>
+  </main>  
 </template>
 
 <script>
