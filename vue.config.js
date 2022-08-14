@@ -1,10 +1,10 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-  configureWebpack: {
-    watch: true
-  },
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/CloudPropertyVue/'
-    : '/'
+  // configureWebpack: {
+  //   watch: true
+  // },
+  // publicPath: process.env.NODE_ENV === 'production'
+  //   ? '/CloudPropertyVue/'
+  //   : '/'
 })
