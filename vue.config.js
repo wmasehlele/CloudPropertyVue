@@ -3,5 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
     watch: true
-  }  
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/CloudPropertyVue/'
+    : '/'
 })
