@@ -97,15 +97,16 @@ nav.side-nav{
 
     .app-name {
         //border-bottom: 1px solid $white-color;
-        padding: 16px 0px 15px 0px;
+        //padding: 16px 15px 15px 0px;
         height: $page-header-height;
+
         .navbar-brand {
-            width: calc($side-nav-width - 30px) !important;
+            //width: calc($side-nav-width - 30px) !important;
             color: $accent-color;
 
             .bi {
                 font-size: 22px;
-                padding: 12px;
+                //padding: 12px;
             }
         }
     }
